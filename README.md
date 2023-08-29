@@ -2,7 +2,7 @@
 ## Test.py
 Create an Account
 ## login_gui.py
-Login, facy GUI
+Login, fancy GUI
 ## login.py
 Login through cmd prompt
 
