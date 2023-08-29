@@ -1,9 +1,13 @@
 import hashlib
 
 file = open("login/info.txt", "r")
+file2 = open("login/salt.txt", "r")
+
+salt = file2.read()
+
 
 username = input("Username: ")
-password = input("Password: ") + "salt"
+password = input("Password: ") + salt
 username = hashlib.md5(username.encode('utf-8')).hexdigest()
 password = password.lower() + username
 
@@ -29,4 +33,5 @@ else:
     print("Denied")
 
 file.close()
+file2.close()
 

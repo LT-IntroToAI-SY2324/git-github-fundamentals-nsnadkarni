@@ -1,12 +1,16 @@
 import hashlib
 
 file = open("login/info.txt", "w")
+file2 = open("login/salt.txt", "r")
+
+salt = file2.read()
+
 
 user = input("Enter a username: \n")
 user = hashlib.md5(user.encode('utf-8')).hexdigest() 
 
 str = input("Enter a Password: \n")
-str = str.lower() + "salt" + user
+str = str.lower() + salt + user
 str2 = ""
 
 arr1 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
@@ -21,7 +25,7 @@ for x in str:
 hash_val2 = hashlib.md5(str2.encode('utf-8')).hexdigest()
 
 str = input("Repeat Password: \n")
-str = str.lower() + "salt" + user
+str = str.lower() + salt + user
 str2 = ""
 
 arr1 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
@@ -42,3 +46,4 @@ else:
     print("Error")
 
 file.close()
+file2.close()
